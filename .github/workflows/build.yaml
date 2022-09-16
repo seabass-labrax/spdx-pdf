@@ -1,0 +1,43 @@
+# SPDX-FileCopyrightText: 2022 Sebastian Crane <seabass-labrax@gmx.com>
+# SPDX-License-Identifier: CC0-1.0 OR 0BSD
+
+name: Build document
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    name: Build document
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download dependencies
+        run: >-
+          sudo apt-get update &&
+          sudo apt-get upgrade &&
+          sudo apt-get install -y
+          texlive-full
+          texlive-fonts-extra
+          texlive-xetex
+          python3-pygments
+          rubber
+      - name: Run LaTeX compiler
+        run: >-
+          rubber --unsafe
+          -c 'setlist arguments -shell-escape'
+          --module=xelatex
+          spdx-spec.latex
+      - name: Upload PDF as artefact
+        uses: actions/upload-artifact@v3
+        with:
+          name: spdx-spec
+          path: |
+            ./spdx-spec.pdf
+            ./spdx-spec.aux
+            ./spdx-spec.log
