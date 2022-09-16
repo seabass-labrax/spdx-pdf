@@ -27,6 +27,11 @@ jobs:
           texlive-xetex
           python3-pygments
           rubber
+      - name: Download Treuno typeface
+        run: |
+          mkdir -p ~/.fonts
+          curl -L -s https://www.fontspace.com/get/family/3eqme > trueno.zip
+          unzip trueno.zip -d ~/.fonts
       - name: Run LaTeX compiler
         run: >-
           rubber --unsafe
