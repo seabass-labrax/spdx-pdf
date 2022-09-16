@@ -1,0 +1,82 @@
+\documentclass[titlepage, 11pt]{report}
+
+\usepackage{array} % provides extra options for tables
+\usepackage{booktabs} % for enhancing the presentation of tables
+\usepackage{fontspec} % for loading arbitrary fonts
+\usepackage{geometry} % for changing margins
+\usepackage{graphicx} % for loading the cover image
+\usepackage[hidelinks]{hyperref} % for making hyperlinks
+\usepackage{minted} % for colour-coding code/data snippets
+\usepackage{parskip} % for adding spacing between paragraphs
+\usepackage{pstricks} % for loading the cover image
+\usepackage{titlesec} % for defining the style of headings
+\usepackage{tocloft} % for adjusting the spacing of the table of contents
+\usepackage{xcolor} % for creating custom colours
+
+\usepackage[T1]{fontenc}
+\usepackage{DejaVuSans}
+\renewcommand*\familydefault{\sfdefault} % use the sans-serif variant by default
+
+
+\definecolor{spdxblue}{RGB}{0,65,107}
+\definecolor{spdxlightblue}{RGB}{67,152,204}
+
+
+\geometry{
+  paper=a4paper,
+  top=2cm,
+  bottom=4cm,
+  left=2cm,
+  right=2cm,
+}
+
+
+\parindent=0pt
+
+
+\titleformat{\chapter}[display]{
+  \fontspec{Trueno}\color{spdxlightblue}\huge\bfseries}{Clause \thechapter}{20pt}{}
+\titlespacing*{\chapter} {0pt}{50pt}{40pt}
+
+\titleformat{\section}{
+  \fontspec{Trueno}\color{spdxblue}\Large\bfseries}{\thesection}{1em}{}
+\titlespacing*{\section} {0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+
+\titleformat{\subsection}{
+  \fontspec{Trueno}\color{spdxblue}\large\bfseries}{\thesubsection}{1em}{}
+\titlespacing*{\subsection} {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+
+\renewcommand*{\cftsecnumwidth}{30pt}
+\renewcommand*{\cftsubsecnumwidth}{40pt}
+% ensures that there is enough space in the table of contents for
+% section numbers with lots of digits
+
+
+\renewcommand*{\cfttoctitlefont}{\fontspec{Trueno}\huge\bfseries\color{spdxlightblue}}
+\renewcommand*{\cftchapfont}{\fontspec{Trueno}\large\bfseries\color{spdxblue}}
+
+
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  \vspace*{3cm}
+  
+  \def\svgwidth{100pt}
+  \scalebox{3}{\input{logo.tex}}
+
+  \par\vspace{3cm}
+  
+  {\scshape\Large Software Package Data Exchange\textregistered (SPDX\textregistered)\par}
+
+  \vspace{20pt}
+  
+  {\scshape\large Specification Version 2.3.0\par}
+
+  \par
+\end{titlepage}
+
+\tableofcontents
+
+\end{document}
