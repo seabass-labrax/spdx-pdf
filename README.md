@@ -10,7 +10,7 @@ To see the official release of the SPDX specification, please visit the [SPDX we
 
 * Make sure you have the Trueno typeface installed to a location where LaTeX can find it (typically `~/.fonts/` for Linux systems).
 
-* Install the required LaTeX compiler, packages and their dependencies: on Debian systems, you can do this with `sudo apt-get install -y texlive-full texlive-fonts-extra texlive-xetex python3-pygments rubber`.
+* Install the required LaTeX compiler, packages and their dependencies: on Debian systems, you can do this with `sudo apt-get install -y texlive-full texlive-fonts-extra texlive-xetex fonts-jetbrains-mono python3-pygments rubber`.
 
 * Generate the PDF (`spdx-spec.pdf`) by running `rubber --unsafe -c 'setlist arguments -shell-escape' --module=xelatex spdx-spec.latex`.
 

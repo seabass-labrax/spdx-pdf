@@ -25,6 +25,7 @@ jobs:
           texlive-full
           texlive-fonts-extra
           texlive-xetex
+          fonts-jetbrains-mono
           python3-pygments
           rubber
       - name: Download Treuno typeface
