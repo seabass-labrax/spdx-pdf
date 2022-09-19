@@ -63,16 +63,16 @@
 \begin{titlepage}
   \centering
   \vspace*{3cm}
-  
+
   \def\svgwidth{100pt}
   \scalebox{3}{\input{logo.tex}}
 
   \par\vspace{3cm}
-  
+
   {\scshape\Large Software Package Data Exchange\textregistered (SPDX\textregistered)\par}
 
   \vspace{20pt}
-  
+
   {\scshape\large Specification Version 2.3.0\par}
 
   \par
