@@ -17,6 +17,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Add Multiverse to apt repositories list
+        run: |
+          printf '
+          deb http://archive.ubuntu.com/ubuntu/ jammy multiverse
+          deb http://archive.ubuntu.com/ubuntu/ jammy-updates multiverse
+          deb http://security.ubuntu.com/ubuntu/ jammy-security multiverse
+          ' | sudo tee -a /etc/apt/sources.list
       - name: Download dependencies
         run: >-
           sudo apt-get update &&
