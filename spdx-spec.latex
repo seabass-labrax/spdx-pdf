@@ -954,11 +954,12 @@ SPDX documents available on the public internet is
   \texttt{DocumentName} is a name given to the SPDX document itself, typically
   the (set of) package name(s) followed by the version. (See 6.4.)
 \item
-  \texttt{UUID} is a universally unique identifier. The UUID could be a version
-  4 random UUID which can be generated from the Online
-  (\url{https://www.uuidgenerator.net/}) UUID Generator or a version 5 UUID
-  generated from a sha1 checksum known to be unique for this specific SPDX
-  document version.
+  \parbox[t]{\linewidth}{
+    \texttt{UUID} is a universally unique identifier. The UUID could be a
+    version 4 random UUID which can be generated from the Online UUID Generator
+    (\url{https://www.uuidgenerator.net/}) or a version 5 UUID generated from a
+    sha1 checksum known to be unique for this specific SPDX document version.
+  }
 \item
   If the creator does not own their own website, a default SPDX CreatorWebsite
   and PathToSpdx can be used (\texttt{spdx.org/spdxdocs}). Note that the SPDX
