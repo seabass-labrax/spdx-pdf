@@ -478,7 +478,7 @@ represented in SPDX as a package:
   a directory or sub-directory
 \item
   a separately distributed piece of software which another Package or File uses
-  or depends upon (e.g., a Python package, a Go module, …)
+  or depends upon (e.g., a Python package, a Go module, ...)
 \item
   a container image, and/or each image layer within a container image
 \item
