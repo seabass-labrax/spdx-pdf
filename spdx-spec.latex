@@ -67,8 +67,7 @@
   \centering
   \vspace*{3cm}
 
-  \def\svgwidth{100pt}
-  \scalebox{3}{\input{logo.tex}}
+  \scalebox{2}{\input{logo.pdf_tex}}
 
   \par\vspace{3cm}
 
