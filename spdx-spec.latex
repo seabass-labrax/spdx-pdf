@@ -352,9 +352,10 @@ constraints:
 \newpage %% force text item and table onto new page since there isn't enough space.
 \item
   Should be easy to recognize in a file system without opening the file. A
-  suggested naming convention is:
+  suggested naming convention is shown in Table 1.
 
   \begin{table}[htbp]
+    \caption{Table 1 — SPDX file naming convention}
     \begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
       \toprule
       \textup{Format} & \textup{Extension} \\
