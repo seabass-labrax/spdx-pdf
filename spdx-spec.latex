@@ -2,6 +2,7 @@
 
 \usepackage{array} % provides extra options for tables
 \usepackage{booktabs} % for enhancing the presentation of tables
+\usepackage{caption}
 \usepackage{fontspec} % for loading arbitrary fonts
 \usepackage{geometry} % for changing margins
 \usepackage{graphicx} % for loading the cover image
@@ -12,6 +13,8 @@
 \usepackage{titlesec} % for defining the style of headings
 \usepackage{tocloft} % for adjusting the spacing of the table of contents
 \usepackage{xcolor} % for creating custom colours
+
+\captionsetup{font=bf, labelformat=empty}
 
 \usepackage[T1]{fontenc}
 \usepackage{DejaVuSans}
@@ -669,9 +672,8 @@ created, modified or deleted). The minor field shall be incremented when
 backwards compatible changes are made. The metadata for the SPDX version field
 is shown in Table 2.
 
-\textbf{Table 2 — Metadata for the SPDX version field}
-
 \begin{table}[htbp]
+\caption{Table 2 — Metadata for the SPDX version field}
 \begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
 \toprule
 \textup{Attribute} & \textup{Value} \\
@@ -745,9 +747,8 @@ http://www.w3.org/1999/02/22-rdf-syntax-ns#
   The metadata for the data license field is shown in Table 3.
 \end{itemize}
 
-\textbf{Table 3 — Metadata for the data license field}
-
 \begin{table}[htbp]
+\caption{Table 3 — Metadata for the data license field}
 \begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
 \toprule
 \textup{Attribute} & \textup{Value} \\
@@ -794,9 +795,10 @@ SPDX document in total, this identifier should be used with the external
 document identifier preceding it. See Clause 11 for examples. The metadata for
 the SPDX identifier field is shown in Table 4.
 
-\textbf{Table 4 — Metadata for SPDX identifier field}
+
 
 \begin{table}[htbp]
+\caption{Table 4 — Metadata for SPDX identifier field}
 \begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
 \toprule
 \textup{Attribute} & \textup{Value} \\
@@ -837,9 +839,8 @@ The URI for the document is the document namespace appended by
 Identify name of this document as designated by creator. The metadata for the
 document name field is shown in Table 5.
 
-\textbf{Table 5 — Metadata for the document name field}
-
 \begin{table}[htbp]
+\caption{Table 5 — Metadata for the document name field}
 \begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
 \toprule
 \textup{Attribute} & \textup{Value} \\
@@ -898,9 +899,8 @@ version, a new URI for the updated document shall be used. There may only be one
 URI for an SPDX document and only one SPDX document for a given URI. The
 metadata for the SPDX document namespace field is shown in Table 6.
 
-\textbf{Table 6 — Metadata for the SPDX document namespace field}
-
 \begin{table}[htbp]
+\caption{Table 6 — Metadata for the SPDX document namespace field}
 \begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
 \toprule
 \textup{Attribute} & \textup{Value} \\
@@ -1002,9 +1002,8 @@ http://www.w3.org/2000/01/rdf-schema#
 Identify any external SPDX documents referenced within this SPDX document. The
 metadata for the external document references field is shown in Table 7.
 
-\textbf{Table 7 — Metadata for the external document references field}
-
 \begin{table}[htbp]
+\caption{Table 7 — Metadata for the external document references field}
 \begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
 \toprule
 \textup{Attribute} & \textup{Value} \\
@@ -1085,9 +1084,10 @@ An optional field for creators of the SPDX document to provide the version of
 the SPDX License List used when the SPDX document was created. The metadata for
 the license list version field is shown in Table 8.
 
-\textbf{Table 8 — Metadata for the license list version field}
+
 
 \begin{table}[htbp]
+\caption{Table 8 — Metadata for the license list version field}
 \begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
 \toprule
 \textup{Attribute} & \textup{Value} \\
@@ -1142,9 +1142,10 @@ involved, use multiple instances of this field. Person name or organization name
 may be designated as ``anonymous'' if appropriate. The metadata for the creator
 field is shown in Table 9.
 
-\textbf{Table 9 — Metadata for the creator field}
+
 
 \begin{table}[htbp]
+\caption{Table 9 — Metadata for the creator field}
 \begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
 \toprule
 \textup{Attribute} & \textup{Value} \\
@@ -1199,9 +1200,10 @@ specified according to combined date and time in UTC format as specified in ISO
 involves the addition of information during a subsequent review. The metadata
 for the created field is shown in Table 10.
 
-\textbf{Table 10 — Metadata for the created field}
+
 
 \begin{table}[htbp]
+\caption{Table 10 — Metadata for the created field}
 \begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
 \toprule
 \textup{Attribute} & \textup{Value} \\
@@ -1260,9 +1262,10 @@ about the creation of the SPDX document or any other relevant comment not
 included in the other fields. The metadata for the Creator comment field is
 shown in Table 11.
 
-\textbf{Table 11 — Metadata for the Creator comment field}
+
 
 \begin{table}[htbp]
+\caption{Table 11 — Metadata for the Creator comment field}
 \begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
 \toprule
 \textup{Attribute} & \textup{Value} \\
@@ -1308,9 +1311,8 @@ An optional field for creators of the SPDX document content to provide comments
 to the consumers of the SPDX document. The metadata for the document comment
 field is shown in Table 12.
 
-\textbf{Table 12 — Metadata for the document comment field}
-
 \begin{table}[htbp]
+\caption{Table 12 — Metadata for the document comment field}
 \begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
 \toprule
 \textup{Attribute} & \textup{Value} \\
