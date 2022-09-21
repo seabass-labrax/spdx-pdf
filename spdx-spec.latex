@@ -701,7 +701,7 @@ EXAMPLE 2 RDF: Property spdx:specVersion in class spdx:SpdxDocument
 
 \begin{minted}[breaklines, bgcolor=black!10!white]{xml}
 <SpdxDocument rdf:about="...">
-   <specVersion>SPDX-2.3</specVersion>
+  <specVersion>SPDX-2.3</specVersion>
 </SpdxDocument>
 \end{minted}
 
@@ -982,8 +982,10 @@ EXAMPLE 2 RDF: The unique ID is the URI for the SPDX document
 
 \begin{minted}[breaklines, breakbefore=/-, bgcolor=black!10!white]{xml}
 <SpdxDocument rdf:about="https://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...">
-    <rdfs:comment>This document was created using SPDX 2.3 using
-    licenses from the web site.</rdfs:comment>
+  <rdfs:comment>
+    This document was created using SPDX 2.3 using
+    licenses from the web site.
+  </rdfs:comment>
 </SpdxDocument>
 \end{minted}
 
@@ -1060,14 +1062,14 @@ The ExternalDocumentRef contains two properties:
 <SpdxDocument rdf:about="...">
   <externalDocumentRef rdf:ID="DocumentRef-spdx-tool-1.2">
     <ExternalDocumentRef>
-        <spdxDocument rdf:about="https://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89..."/>
-        <checksum>
-            <Checksum>
-                <algorithm rdf:resource="checksumAlgorithm_sha1"/>
-                <checksumValue>d6a770ba38583ed4bb4525bd96e50461655d2758
-                </checksumValue>
-            </Checksum>
-        </checksum>
+      <spdxDocument rdf:about="https://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89..."/>
+      <checksum>
+        <Checksum>
+          <algorithm rdf:resource="checksumAlgorithm_sha1"/>
+          <checksumValue>d6a770ba38583ed4bb4525bd96e50461655d2758
+          </checksumValue>
+        </Checksum>
+      </checksum>
     </ExternalDocumentRef>
   </externalDocumentRef>
 </SpdxDocument>
@@ -1124,7 +1126,7 @@ EXAMPLE 2 RDF: Property \texttt{licenseListVersion} in class
 
 \begin{minted}[breaklines, bgcolor=black!10!white]{xml}
 <CreationInfo>
-    <licenseListVersion>3.17</licenseListVersion>
+  <licenseListVersion>3.17</licenseListVersion>
 </CreationInfo>
 \end{minted}
 
@@ -1182,9 +1184,9 @@ EXAMPLE 2 RDF: Property \texttt{spdx:creator} in class
 
 \begin{minted}[breaklines, bgcolor=black!10!white]{xml}
 <CreationInfo>
-    <creator> Person: Jane Doe () </creator>
-    <creator> Organization: ExampleCodeInspect () </creator>
-    <creator> Tool: LicenseFind-1.0 </creator>
+  <creator> Person: Jane Doe () </creator>
+  <creator> Organization: ExampleCodeInspect () </creator>
+  <creator> Tool: LicenseFind-1.0 </creator>
 </CreationInfo>
 \end{minted}
 
@@ -1246,7 +1248,7 @@ EXAMPLE 2 RDF: Property \texttt{spdx:created} in class
 
 \begin{minted}[breaklines, bgcolor=black!10!white]{xml}
 <CreationInfo>
-    <created>2010-01-29T18:30:22Z</created>
+  <created>2010-01-29T18:30:22Z</created>
 </CreationInfo>
 \end{minted}
 
@@ -1293,9 +1295,9 @@ EXAMPLE 2 RDF: Property \texttt{rdfs:comment} in class
 
 \begin{minted}[breaklines, bgcolor=black!10!white]{xml}
 <CreationInfo>
-    <rdfs:comment>This SPDX document was created by a combination of
-    using a free tool, as indicated above, and manual analysis
-    by several authors of the code.</rdfs:comment>
+  <rdfs:comment>This SPDX document was created by a combination of
+  using a free tool, as indicated above, and manual analysis
+  by several authors of the code.</rdfs:comment>
 </CreationInfo>
 \end{minted}
 
@@ -1341,11 +1343,11 @@ EXAMPLE 2 RDF: Property \texttt{rdfs:comment} in class \texttt{SpdxDocument}
 
 \begin{minted}[breaklines, bgcolor=black!10!white]{xml}
 <SpdxDocument rdf:about="...">
-    <rdfs:comment>
-      This document was created using SPDX 2.3, version 3.17 of the SPDX
-      License List and refering to licenses in file
-      MyCompany.Approved.Licenses.spdx.
-    </rdfs:comment>
+  <rdfs:comment>
+    This document was created using SPDX 2.3, version 3.17 of the SPDX
+    License List and refering to licenses in file
+    MyCompany.Approved.Licenses.spdx.
+  </rdfs:comment>
 </SpdxDocument>
 \end{minted}
 
