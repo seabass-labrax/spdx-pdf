@@ -1402,4 +1402,69 @@ EXAMPLE 2 RDF: Property \texttt{spdx:name} in class \texttt{spdx:Package}
 \end{minted}
 
 
+\section{Package SPDX identifier field}
+
+\subsection{Description}
+Uniquely identify any element in an SPDX document which may be referenced by
+other elements. These may be referenced internally and externally with the
+addition of the SPDX document identifier. The metadata for the package SPDX
+identifier field is shown in Table 14.
+
+\begin{table}[htbp]
+\caption{Table 14 — Metadata for the package SPDX identifier field}
+\begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
+\toprule
+\textup{Attribute} & \textup{Value} \\
+\midrule
+Required & Yes \\
+Cardinality & 1..1 \\
+Format & “SPDXRef-”\texttt{[idstring]} where \texttt{[idstring]} is a unique
+string containing letters, numbers, \texttt{.}, and/or \texttt{-}. \\
+
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\subsection{Intent}
+There may be several versions of the same package within an SPDX document. Each
+element needs to be able to be referred to uniquely so that relationships
+between elements can be clearly articulated.
+
+\subsection{Examples}
+EXAMPLE 1 Tag: \texttt{SPDXID:}
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{yaml}
+SPDXID: SPDXRef-1
+\end{minted}
+
+EXAMPLE 2 RDF: The URI for the element will follow the form:
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{xml}
+[SPDX document namespace]#[SPDX identifier]
+\end{minted}
+
+See 6.5 for the definition of the SPDX document namespace and 6.3 for the
+definition of the SPDX identifier.
+
+\newpage %% force this line into the same page as the examples
+
+Using \texttt{xml:base}:
+
+\begin{minted}[breaklines, breakbefore=/-, bgcolor=black!10!white]{xml}
+<rdf:RDF xml:base="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B">
+  ...
+  <Package rdf:about="#SPDXRef-1">
+    ...
+  </Package>
+</rdf:RDF>
+\end{minted}
+
+Using document URI:
+\begin{minted}[breaklines, breakbefore=/-, bgcolor=black!10!white]{xml}
+<Package rdf:about="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B#SPDXRef-1">
+    ...
+</Package>
+\end{minted}
+
+
 \end{document}
