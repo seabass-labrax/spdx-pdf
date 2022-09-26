@@ -1508,4 +1508,71 @@ EXAMPLE 2 RDF: Property \texttt{spdx:versionInfo} in class \texttt{spdx:Package}
 \end{minted}
 
 
+\section{Package file name field}
+
+\subsection{Description}
+Provide the actual file name of the package, or path of the directory being
+treated as a package. This may include the packaging and compression methods
+used as part of the file name, if appropriate. The metadata for the package file
+name field is shown in Table 16.
+
+\begin{table}[htbp]
+\caption{Table 16 — Metadata for the package file name field}
+\begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
+\toprule
+\textup{Attribute} & \textup{Value} \\
+\midrule
+Required & No \\
+Cardinality & 0..1 \\
+Format & Single line of text. \\
+
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\subsection{Intent}
+The actual file name of the compressed file containing the package may be a
+significant technical element that needs to be included with each package
+identification information. If a grouping, like a set of files in a
+sub-directory, is being treated as a package, the sub-directory name may be
+appropriate to provide. Sub-directory name is preceded with a \texttt{./}. See
+RFC 3986 for syntax.
+
+\subsection{Examples}
+EXAMPLE 1 Tag: \texttt{PackageFileName:}
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{yaml}
+PackageFileName: glibc-2.11.1.tar.gz
+\end{minted}
+
+Sub-directory being treated as a package:
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{yaml}
+PackageFileName: ./myrootdir/mysubdir1
+\end{minted}
+
+\newpage %% force RDF examples onto new page
+
+EXAMPLE 2 RDF: Property \texttt{spdx:packageFileName} in class
+\texttt{spdx:Package}
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{xml}
+<Package rdf:about="...">
+  ...
+  <packageFileName>glibc-2.11.1.tar.gz</packageFileName>
+  ...
+</Package>
+\end{minted}
+
+Sub-directory being treated as a package:
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{xml}
+<Package rdf:about="...">
+  ...
+  <packageFileName>./myrootdir/mysubdir1</packageFileName>
+  ...
+</Package>
+\end{minted}
+
+
 \end{document}
