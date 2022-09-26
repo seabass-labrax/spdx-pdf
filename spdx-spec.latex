@@ -1575,4 +1575,80 @@ Sub-directory being treated as a package:
 \end{minted}
 
 
+\section{Package supplier field}
+
+\subsection{Description}
+Identify the actual distribution source for the package/directory identified in
+the SPDX document. This might or might not be different from the originating
+distribution source for the package. The name of the Package Supplier shall be
+an organization or recognized author and not a web site. For example,
+SourceForge is a host website, not a supplier, the supplier for
+\url{https://sourceforge.net/projects/bridge/} is ``The Linux Foundation.''
+
+Use \texttt{NOASSERTION} if:
+
+\begin{itemize}
+\item
+  the SPDX document creator has attempted to but cannot reach a reasonable
+  objective determination
+\item
+  the SPDX document creator has made no attempt to determine this field
+\item
+  or the SPDX document creator has intentionally provided no information (no
+  meaning should be implied by doing so).
+\end{itemize}
+
+The metadata for the package supplier field is shown in Table 17.
+
+\begin{table}[htbp]
+\caption{Table 17 — Metadata for the package supplier field}
+\begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
+\toprule
+\textup{Attribute} & \textup{Value} \\
+\midrule
+Required & No \\
+Cardinality & 0..1 \\
+Format & Single line of text with one of the following:
+\begin{itemize}
+\item
+  \texttt{NOASSERTION}
+\item
+  \texttt{"Person: person name" and optional "(email)"}
+\item
+  \texttt{"Organization: organization" and optional "(email)"}
+\item
+  \texttt{"Tool: toolidentifier-version"}
+\end{itemize}
+\\
+
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\subsection{Intent}
+Assist with understanding the point of distribution for the code in the
+package. This field is vital for ensuring that downstream package recipients can
+address any ambiguity or concerns that might arise with the information in the
+SPDX document or the contents of the package it documents.
+
+\subsection{Examples}
+EXAMPLE 1 Tag: \texttt{}PackageSupplier:
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{yaml}
+PackageSupplier: Person: Jane Doe (jane.doe@example.com)
+\end{minted}
+
+EXAMPLE 2 RDF: Property \texttt{spdx:supplier} in class \texttt{spdx:Package}
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{xml}
+<Package rdf:about="...">
+  ...
+  <supplier>
+    Person: Jane Doe (jane.doe@example.com)
+  </supplier>
+  ...
+</Package>
+\end{minted}
+
+
 \end{document}
