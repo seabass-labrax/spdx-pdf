@@ -1467,4 +1467,45 @@ Using document URI:
 \end{minted}
 
 
+\section{Package version field}
+
+\subsection{Description}
+Identify the version of the package. The metadata for the package version field
+is shown in Table 15.
+
+\begin{table}[htbp]
+\caption{Table 15 — Metadata for the package version field}
+\begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
+\toprule
+\textup{Attribute} & \textup{Value} \\
+\midrule
+Required & No \\
+Cardinality & 0..1 \\
+Format & Single line of text. \\
+
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\subsection{Intent}
+The versioning of a package is a useful for identification purposes and for
+indicating later changes of the package version.
+
+\subsection{Examples}
+EXAMPLE 1 Tag: \texttt{PackageVersion:}
+\begin{minted}[breaklines, bgcolor=black!10!white]{yaml}
+PackageVersion: 2.11.1
+\end{minted}
+
+EXAMPLE 2 RDF: Property \texttt{spdx:versionInfo} in class \texttt{spdx:Package}
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{xml}
+<Package rdf:about="...">
+  ...
+  <versionInfo>2.11.1</versionInfo>
+  ...
+</Package>
+\end{minted}
+
+
 \end{document}
