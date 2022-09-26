@@ -1354,4 +1354,52 @@ EXAMPLE 2 RDF: Property \texttt{rdfs:comment} in class \texttt{SpdxDocument}
 \end{minted}
 
 
+\chapter{Package information section}
+
+If the SPDX information describes a package, the following fields shall be
+included per package.
+
+\section{Package name field}
+The existence of the Package name fields indicates the existence of package
+information in the SPDX information. Hence in order to describe package
+information, this field is mandatory.
+
+\subsection{Description}
+Identify the full name of the package as given by the Package Originator
+(7.6). The metadata for the package name field is shown in Table 13.
+
+\begin{table}[htbp]
+\caption{Table 13 — Metadata for the package name field}
+\begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
+\toprule
+\textup{Attribute} & \textup{Value} \\
+\midrule
+Required & Yes \\
+Cardinality & 1..1 \\
+Format & Single line of text. \\
+
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\subsection{Intent}
+The name of each package is an important conventional technical identifier to be
+maintained for each package.
+
+\subsection{Examples}
+EXAMPLE 1 Tag: \texttt{PackageName:}
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{yaml}
+PackageName: glibc
+\end{minted}
+
+EXAMPLE 2 RDF: Property \texttt{spdx:name} in class \texttt{spdx:Package}
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{xml}
+<Package rdf:about="...">
+  <name>glibc</name>
+</Package>
+\end{minted}
+
+
 \end{document}
