@@ -1582,7 +1582,7 @@ Identify the actual distribution source for the package/directory identified in
 the SPDX document. This might or might not be different from the originating
 distribution source for the package. The name of the Package Supplier shall be
 an organization or recognized author and not a web site. For example,
-SourceForge is a host website, not a supplier, the supplier for
+SourceForge is a host website, not a supplier; the supplier for
 \url{https://sourceforge.net/projects/bridge/} is ``The Linux Foundation.''
 
 Use \texttt{NOASSERTION} if:
