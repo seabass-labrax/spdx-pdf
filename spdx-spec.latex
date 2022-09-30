@@ -1354,4 +1354,376 @@ EXAMPLE 2 RDF: Property \texttt{rdfs:comment} in class \texttt{SpdxDocument}
 \end{minted}
 
 
+\chapter{Package information section}
+
+If the SPDX information describes a package, the following fields shall be
+included per package.
+
+\section{Package name field}
+The existence of the Package name fields indicates the existence of package
+information in the SPDX information. Hence in order to describe package
+information, this field is mandatory.
+
+\subsection{Description}
+Identify the full name of the package as given by the Package Originator
+(7.6). The metadata for the package name field is shown in Table 13.
+
+\begin{table}[htbp]
+\caption{Table 13 — Metadata for the package name field}
+\begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
+\toprule
+\textup{Attribute} & \textup{Value} \\
+\midrule
+Required & Yes \\
+Cardinality & 1..1 \\
+Format & Single line of text. \\
+
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\subsection{Intent}
+The name of each package is an important conventional technical identifier to be
+maintained for each package.
+
+\subsection{Examples}
+EXAMPLE 1 Tag: \texttt{PackageName:}
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{yaml}
+PackageName: glibc
+\end{minted}
+
+EXAMPLE 2 RDF: Property \texttt{spdx:name} in class \texttt{spdx:Package}
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{xml}
+<Package rdf:about="...">
+  <name>glibc</name>
+</Package>
+\end{minted}
+
+
+\section{Package SPDX identifier field}
+
+\subsection{Description}
+Uniquely identify any element in an SPDX document which may be referenced by
+other elements. These may be referenced internally and externally with the
+addition of the SPDX document identifier. The metadata for the package SPDX
+identifier field is shown in Table 14.
+
+\begin{table}[htbp]
+\caption{Table 14 — Metadata for the package SPDX identifier field}
+\begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
+\toprule
+\textup{Attribute} & \textup{Value} \\
+\midrule
+Required & Yes \\
+Cardinality & 1..1 \\
+Format & “SPDXRef-”\texttt{[idstring]} where \texttt{[idstring]} is a unique
+string containing letters, numbers, \texttt{.}, and/or \texttt{-}. \\
+
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\subsection{Intent}
+There may be several versions of the same package within an SPDX document. Each
+element needs to be able to be referred to uniquely so that relationships
+between elements can be clearly articulated.
+
+\subsection{Examples}
+EXAMPLE 1 Tag: \texttt{SPDXID:}
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{yaml}
+SPDXID: SPDXRef-1
+\end{minted}
+
+EXAMPLE 2 RDF: The URI for the element will follow the form:
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{xml}
+[SPDX document namespace]#[SPDX identifier]
+\end{minted}
+
+See 6.5 for the definition of the SPDX document namespace and 6.3 for the
+definition of the SPDX identifier.
+
+\newpage %% force this line into the same page as the examples
+
+Using \texttt{xml:base}:
+
+\begin{minted}[breaklines, breakbefore=/-, bgcolor=black!10!white]{xml}
+<rdf:RDF xml:base="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B">
+  ...
+  <Package rdf:about="#SPDXRef-1">
+    ...
+  </Package>
+</rdf:RDF>
+\end{minted}
+
+Using document URI:
+\begin{minted}[breaklines, breakbefore=/-, bgcolor=black!10!white]{xml}
+<Package rdf:about="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B#SPDXRef-1">
+    ...
+</Package>
+\end{minted}
+
+
+\section{Package version field}
+
+\subsection{Description}
+Identify the version of the package. The metadata for the package version field
+is shown in Table 15.
+
+\begin{table}[htbp]
+\caption{Table 15 — Metadata for the package version field}
+\begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
+\toprule
+\textup{Attribute} & \textup{Value} \\
+\midrule
+Required & No \\
+Cardinality & 0..1 \\
+Format & Single line of text. \\
+
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\subsection{Intent}
+The versioning of a package is a useful for identification purposes and for
+indicating later changes of the package version.
+
+\subsection{Examples}
+EXAMPLE 1 Tag: \texttt{PackageVersion:}
+\begin{minted}[breaklines, bgcolor=black!10!white]{yaml}
+PackageVersion: 2.11.1
+\end{minted}
+
+EXAMPLE 2 RDF: Property \texttt{spdx:versionInfo} in class \texttt{spdx:Package}
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{xml}
+<Package rdf:about="...">
+  ...
+  <versionInfo>2.11.1</versionInfo>
+  ...
+</Package>
+\end{minted}
+
+
+\section{Package file name field}
+
+\subsection{Description}
+Provide the actual file name of the package, or path of the directory being
+treated as a package. This may include the packaging and compression methods
+used as part of the file name, if appropriate. The metadata for the package file
+name field is shown in Table 16.
+
+\begin{table}[htbp]
+\caption{Table 16 — Metadata for the package file name field}
+\begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
+\toprule
+\textup{Attribute} & \textup{Value} \\
+\midrule
+Required & No \\
+Cardinality & 0..1 \\
+Format & Single line of text. \\
+
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\subsection{Intent}
+The actual file name of the compressed file containing the package may be a
+significant technical element that needs to be included with each package
+identification information. If a grouping, like a set of files in a
+sub-directory, is being treated as a package, the sub-directory name may be
+appropriate to provide. Sub-directory name is preceded with a \texttt{./}. See
+RFC 3986 for syntax.
+
+\subsection{Examples}
+EXAMPLE 1 Tag: \texttt{PackageFileName:}
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{yaml}
+PackageFileName: glibc-2.11.1.tar.gz
+\end{minted}
+
+Sub-directory being treated as a package:
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{yaml}
+PackageFileName: ./myrootdir/mysubdir1
+\end{minted}
+
+\newpage %% force RDF examples onto new page
+
+EXAMPLE 2 RDF: Property \texttt{spdx:packageFileName} in class
+\texttt{spdx:Package}
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{xml}
+<Package rdf:about="...">
+  ...
+  <packageFileName>glibc-2.11.1.tar.gz</packageFileName>
+  ...
+</Package>
+\end{minted}
+
+Sub-directory being treated as a package:
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{xml}
+<Package rdf:about="...">
+  ...
+  <packageFileName>./myrootdir/mysubdir1</packageFileName>
+  ...
+</Package>
+\end{minted}
+
+
+\section{Package supplier field}
+
+\subsection{Description}
+Identify the actual distribution source for the package/directory identified in
+the SPDX document. This might or might not be different from the originating
+distribution source for the package. The name of the Package Supplier shall be
+an organization or recognized author and not a web site. For example,
+SourceForge is a host website, not a supplier; the supplier for
+\url{https://sourceforge.net/projects/bridge/} is ``The Linux Foundation.''
+
+Use \texttt{NOASSERTION} if:
+
+\begin{itemize}
+\item
+  the SPDX document creator has attempted to but cannot reach a reasonable
+  objective determination
+\item
+  the SPDX document creator has made no attempt to determine this field
+\item
+  or the SPDX document creator has intentionally provided no information (no
+  meaning should be implied by doing so).
+\end{itemize}
+
+The metadata for the package supplier field is shown in Table 17.
+
+\begin{table}[htbp]
+\caption{Table 17 — Metadata for the package supplier field}
+\begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
+\toprule
+\textup{Attribute} & \textup{Value} \\
+\midrule
+Required & No \\
+Cardinality & 0..1 \\
+Format & Single line of text with one of the following:
+\begin{itemize}
+\item
+  \texttt{NOASSERTION}
+\item
+  \texttt{"Person: person name" and optional "(email)"}
+\item
+  \texttt{"Organization: organization" and optional "(email)"}
+\item
+  \texttt{"Tool: toolidentifier-version"}
+\end{itemize}
+\\
+
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\subsection{Intent}
+Assist with understanding the point of distribution for the code in the
+package. This field is vital for ensuring that downstream package recipients can
+address any ambiguity or concerns that might arise with the information in the
+SPDX document or the contents of the package it documents.
+
+\subsection{Examples}
+EXAMPLE 1 Tag: \texttt{}PackageSupplier:
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{yaml}
+PackageSupplier: Person: Jane Doe (jane.doe@example.com)
+\end{minted}
+
+EXAMPLE 2 RDF: Property \texttt{spdx:supplier} in class \texttt{spdx:Package}
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{xml}
+<Package rdf:about="...">
+  ...
+  <supplier>
+    Person: Jane Doe (jane.doe@example.com)
+  </supplier>
+  ...
+</Package>
+\end{minted}
+
+
+\section{Package originator field}
+
+\subsection{Description}
+If the package identified in the SPDX document originated from a different
+organization or person than identified as Package Supplier (see 7.5 above), this
+field identifies from where or whom the package originally came. In some cases,
+a package may be created and originally distributed by a different third party
+than the Package Supplier of the package. For example, the SPDX document
+identifies the package as glibc and the Package Supplier as Red Hat, but the
+Free Software Foundation is the Package Originator.
+
+Use \texttt{NOASSERTION} if:
+
+\begin{itemize}
+\item
+  the SPDX document creator has attempted to but cannot reach a reasonable
+  objective determination
+\item
+  the SPDX document creator has made no attempt to determine this field
+\item
+  the SPDX document creator has intentionally provided no information (no
+  meaning should be implied by doing so).
+\end{itemize}
+
+The metadata for the package originator field is shown in Table 18.
+
+\begin{table}[htbp]
+\caption{Table 18 — Metadata for the package originator field}
+\begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
+\toprule
+\textup{Attribute} & \textup{Value} \\
+\midrule
+Required & No \\
+Cardinality & 0..1 \\
+Format & Single line of text with one of the following:
+\begin{itemize}
+\item
+  \texttt{NOASSERTION}
+\item
+  \texttt{"Person: person name" and optional "(email)"}
+\item
+  \texttt{"Organization: organization" and optional "(email)"}
+\item
+  \texttt{"Tool: toolidentifier-version"}
+\end{itemize}
+\\
+
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\subsection{Intent}
+Assist with understanding the point of origin of the code in the package. This
+field is vital for understanding who originally distributed a package and should
+help in addressing any ambiguity or concerns that might arise with the
+information in the SPDX document or the contents of the Package it documents.
+
+\subsection{Examples}
+EXAMPLE 1 Tag: \texttt{PackageOriginator:}
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{yaml}
+PackageOriginator: Organization: ExampleCodeInspect (contact@example.com)
+\end{minted}
+
+EXAMPLE 2 RDF: Property \texttt{spdx:originator} in class \texttt{spdx:Package}
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{xml}
+<Package rdf:about="...">
+  <originator>
+    Organization: ExampleCodeInspect (contact@example.com)
+  </originator>
+</Package>
+\end{minted}
+
+
 \end{document}
