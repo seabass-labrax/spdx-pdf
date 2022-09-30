@@ -1651,4 +1651,79 @@ EXAMPLE 2 RDF: Property \texttt{spdx:supplier} in class \texttt{spdx:Package}
 \end{minted}
 
 
+\section{Package originator field}
+
+\subsection{Description}
+If the package identified in the SPDX document originated from a different
+organization or person than identified as Package Supplier (see 7.5 above), this
+field identifies from where or whom the package originally came. In some cases,
+a package may be created and originally distributed by a different third party
+than the Package Supplier of the package. For example, the SPDX document
+identifies the package as glibc and the Package Supplier as Red Hat, but the
+Free Software Foundation is the Package Originator.
+
+Use \texttt{NOASSERTION} if:
+
+\begin{itemize}
+\item
+  the SPDX document creator has attempted to but cannot reach a reasonable
+  objective determination
+\item
+  the SPDX document creator has made no attempt to determine this field
+\item
+  the SPDX document creator has intentionally provided no information (no
+  meaning should be implied by doing so).
+\end{itemize}
+
+The metadata for the package originator field is shown in Table 18.
+
+\begin{table}[htbp]
+\caption{Table 18 — Metadata for the package originator field}
+\begin{tabular*}{\linewidth}{>{\itshape}lp{0.75\linewidth}}
+\toprule
+\textup{Attribute} & \textup{Value} \\
+\midrule
+Required & No \\
+Cardinality & 0..1 \\
+Format & Single line of text with one of the following:
+\begin{itemize}
+\item
+  \texttt{NOASSERTION}
+\item
+  \texttt{"Person: person name" and optional "(email)"}
+\item
+  \texttt{"Organization: organization" and optional "(email)"}
+\item
+  \texttt{"Tool: toolidentifier-version"}
+\end{itemize}
+\\
+
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\subsection{Intent}
+Assist with understanding the point of origin of the code in the package. This
+field is vital for understanding who originally distributed a package and should
+help in addressing any ambiguity or concerns that might arise with the
+information in the SPDX document or the contents of the Package it documents.
+
+\subsection{Examples}
+EXAMPLE 1 Tag: \texttt{PackageOriginator:}
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{yaml}
+PackageOriginator: Organization: ExampleCodeInspect (contact@example.com)
+\end{minted}
+
+EXAMPLE 2 RDF: Property \texttt{spdx:originator} in class \texttt{spdx:Package}
+
+\begin{minted}[breaklines, bgcolor=black!10!white]{xml}
+<Package rdf:about="...">
+  <originator>
+    Organization: ExampleCodeInspect (contact@example.com)
+  </originator>
+</Package>
+\end{minted}
+
+
 \end{document}
